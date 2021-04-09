@@ -7,5 +7,5 @@ declare module "$crown-components" {
 }
 
 declare module "*.svelte!mount" {}
-// declare module "*.svelte!mount!eager" {}
-// declare module "*.svelte!mount!lazy" {}
+declare module "*.svelte!mount!eager" {}
+declare module "*.svelte!mount!lazy" {}
