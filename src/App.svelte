@@ -1,23 +1,18 @@
-<script lang="ts">
-  import logo from './assets/svelte.png'
-  import Counter from './lib/Counter.svelte'
+<script>
+  export let name;
+  import Lazy from './lib/Lazy.svelte!mount'
+  export let component, componentProps;
 </script>
 
+<a href="/about">About</a>
 <main>
-  <img src={logo} alt="Svelte Logo" />
-  <h1>Hello Typescript!</h1>
+  <h1>Hello Partial!</h1>
+  <Lazy server={Date.now()} foo="testProp" />
+  <Lazy server={Date.now()} foo="testProp" />
+  <Lazy server={Date.now()} foo="testProp" />
+  <p>{name}</p>
+  <svelte:component this={component} {...componentProps || {}} />
 
-  <Counter />
-
-  <p>
-    Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte
-    apps.
-  </p>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme">SvelteKit</a> for
-    the officially supported framework, also powered by Vite!
-  </p>
 </main>
 
 <style>
@@ -30,11 +25,6 @@
     text-align: center;
     padding: 1em;
     margin: 0 auto;
-  }
-
-  img {
-    height: 16rem;
-    width: 16rem;
   }
 
   h1 {
