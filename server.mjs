@@ -16,9 +16,9 @@ const manifest = isProd
   : {}
 
 function getIndexTemplate(url) {
-  // if (isProd) {
-  //   return indexProd
-  // }
+  if (isProd) {
+    return indexProd
+  }
 
   // during dev, inject vite client + always read fresh index.html
   return (
@@ -53,7 +53,9 @@ async function startServer() {
 
   app.use('*', async (req, res, next) => {
     try {
-      const { render } = await viteDevServer.ssrLoadModule('/src/entry-server.ts')
+      const { render } = isProd
+      ? await import('./dist/server/entry-server.js')
+      : await viteDevServer.ssrLoadModule('/src/entry-server.ts')
 
       const rendered = await render(req.originalUrl, manifest)
       const head = `<style>${rendered.css.code}</style>`;
