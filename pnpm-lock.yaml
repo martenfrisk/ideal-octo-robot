@@ -15,13 +15,16 @@ specifiers:
   hash-sum: ^2.0.0
   locate-character: ^2.0.5
   magic-string: ^0.25.7
+  morphdom: ^2.6.1
   nanoid: ^3.1.22
   require-relative: ^0.8.7
   rollup: ^2.44.0
+  serialize-javascript: ^5.0.1
   sirv: ^1.0.11
   slash: ^3.0.0
   source-map: ^0.7.3
   svelte: ^3.35.0
+  svelte-pilot: ^0.2.1
   svelte-preprocess: ^4.6.9
   typescript: ^4.2.3
   vite: ^2.1.5
@@ -34,9 +37,11 @@ dependencies:
   express: 4.17.1
   hash-sum: 2.0.0
   require-relative: 0.8.7
+  serialize-javascript: 5.0.1
   sirv: 1.0.11
   slash: 3.0.0
   source-map: 0.7.3
+  svelte-pilot: 0.2.1_svelte@3.37.0
 
 devDependencies:
   '@sveltejs/vite-plugin-svelte': 1.0.0-next.6_396d186e69d9be4f41fb81a15b459f1b
@@ -47,6 +52,7 @@ devDependencies:
   esbuild: 0.9.7
   locate-character: 2.0.5
   magic-string: 0.25.7
+  morphdom: 2.6.1
   nanoid: 3.1.22
   rollup: 2.44.0
   svelte: 3.37.0
@@ -164,6 +170,10 @@ packages:
   /bytes/3.1.0:
     resolution: {integrity: sha512-zauLjrfCG+xvoyaqLoV8bLVXXNGC4JqlxFCutSDWA6fJrTo2ZuvLYTqZ7aHBLZSMOopbzwv8f+wZcVzfVTI2Dg==}
     engines: {node: '>= 0.8'}
+    dev: false
+
+  /cast-string/0.5.1:
+    resolution: {integrity: sha512-HUX8Yu3LANsU+2JMvOZhlM8Ufv/bt+uxfRh6FIUUleuZyxtGUToQHwjDCsdH+++zLBdtoXtcDSnJwAiIOtrIMA==}
     dev: false
 
   /chalk/4.1.0:
@@ -421,6 +431,10 @@ packages:
     resolution: {integrity: sha512-n2GmejDXtOPBAZdIiEFy5dJ5N38xBCXLNOtw2WpB9kGh6pnrEuKlwYI+Tkpofc4wDtVXHtoAOJaMRlYG/oYaxg==}
     dev: true
 
+  /lodash-es/4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: false
+
   /magic-string/0.25.7:
     resolution: {integrity: sha512-4CrMT5DOHTDk4HYDlzmwu4FVCcIYI8gauveasrdCu2IKIFOJ3f0v/8MDGJCDL9oD2ppz/Av1b0Nj345H9M+XIA==}
     dependencies:
@@ -468,6 +482,10 @@ packages:
   /min-indent/1.0.1:
     resolution: {integrity: sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==}
     engines: {node: '>=4'}
+    dev: true
+
+  /morphdom/2.6.1:
+    resolution: {integrity: sha512-Y8YRbAEP3eKykroIBWrjcfMw7mmwJfjhqdpSvoqinu8Y702nAwikpXcNFDiIkyvfCLxLM9Wu95RZqo4a9jFBaA==}
     dev: true
 
   /ms/2.0.0:
@@ -543,6 +561,12 @@ packages:
     engines: {node: '>=0.6'}
     dev: false
 
+  /randombytes/2.1.0:
+    resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
+    dependencies:
+      safe-buffer: 5.2.1
+    dev: false
+
   /range-parser/1.2.1:
     resolution: {integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==}
     engines: {node: '>= 0.6'}
@@ -580,6 +604,10 @@ packages:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
     dev: false
 
+  /safe-buffer/5.2.1:
+    resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
+    dev: false
+
   /safer-buffer/2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: false
@@ -601,6 +629,12 @@ packages:
       on-finished: 2.3.0
       range-parser: 1.2.1
       statuses: 1.5.0
+    dev: false
+
+  /serialize-javascript/5.0.1:
+    resolution: {integrity: sha512-SaaNal9imEO737H2c05Og0/8LUXG7EnsZyMa8MzkmuHoELfT6txuj0cMqRj6zfPKnmQ1yasR4PCJc8x+M4JSPA==}
+    dependencies:
+      randombytes: 2.1.0
     dev: false
 
   /serve-static/1.14.1:
@@ -668,6 +702,17 @@ packages:
     dependencies:
       svelte: 3.37.0
     dev: true
+
+  /svelte-pilot/0.2.1_svelte@3.37.0:
+    resolution: {integrity: sha512-4xVLto0B96p6hGKLUJvFgFYtfaWZuJsu3bd+WFqvcKtCMC8C5kcuSTAz18hkXq0IL39hU/pp0lFjogm7duVX6w==}
+    peerDependencies:
+      svelte: ^3.37.0
+    dependencies:
+      cast-string: 0.5.1
+      lodash-es: 4.17.21
+      svelte: 3.37.0
+      url-router: 13.0.0
+    dev: false
 
   /svelte-preprocess/4.7.0_svelte@3.37.0+typescript@4.2.3:
     resolution: {integrity: sha512-iNrY4YGqi0LD2e6oT9YbdSzOKntxk8gmzfqso1z/lUJOZh4o6fyIqkirmiZ8/dDJFqtIE1spVgDFWgkfhLEYlw==}
@@ -750,6 +795,10 @@ packages:
   /unpipe/1.0.0:
     resolution: {integrity: sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=}
     engines: {node: '>= 0.8'}
+    dev: false
+
+  /url-router/13.0.0:
+    resolution: {integrity: sha512-ePA6wkquLJfX+mjEcFvFzdLx/PuthtUN0u6eqK/EIux8iQY7Ky03UTCyerDqlvA5lgyImtwNbtTIjp1a1/VtKQ==}
     dev: false
 
   /utils-merge/1.0.1:
