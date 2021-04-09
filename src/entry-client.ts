@@ -1,11 +1,15 @@
-import App from './App.svelte'
+// import App from './App.svelte'
 
-const app = new App({
-  target: document.body,
-  hydrate: true,
-  props: {
-    name: 'world'
-  }
-})
+import { init } from "./client/hydrate"
 
-export default app
+// const app = new App({
+//   target: document.body,
+//   hydrate: true,
+//   props: {
+//     name: 'world'
+//   }
+// })
+
+// export default app
+
+init()
