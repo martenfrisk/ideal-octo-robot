@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "pnpm build:client && pnpm build:server && node server.mjs",
+    "dev:prod": "cross-env NODE_ENV=production pnpm build:client && cross-env NODE_ENV=production pnpm build:server && cross-env NODE_ENV=production node server.mjs",
     "build": "vite build",
     "build:client": "vite build --outDir dist/client --ssrManifest",
     "build:server": "vite build --outDir dist/server --ssr src/entry-server.ts",
-    "serve": "vite preview"
+    "serve": "vite preview --debug"
   },
   "devDependencies": {
     "@rollup/pluginutils": "^4.1.0",
@@ -32,6 +33,7 @@
     "@rollup/pluginutils": "^4.1.0",
     "chalk": "^4.1.0",
     "compression": "^1.7.4",
+    "cross-env": "^7.0.3",
     "debug": "^4.3.2",
     "express": "^4.17.1",
     "hash-sum": "^2.0.0",
