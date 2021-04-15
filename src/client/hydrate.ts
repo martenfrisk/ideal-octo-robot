@@ -1,5 +1,4 @@
-// import lazyComponents from "$crown-components";
-const lazyComponents = {"./Lazy.svelte": () => import("../lib/Lazy.svelte")}
+import lazyComponents from "$crown-components";
 const instances = new WeakMap();
 
 export function init() {
