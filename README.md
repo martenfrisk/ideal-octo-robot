@@ -3,7 +3,7 @@
 ## Installation
 `pnpm i` then `pnpm dev` or `pnpm dev:prod`.
 
-If you're using npm or yarn, remember to edit the relavant parts of `scripts` in `package.json`.
+If you're using *npm* or *yarn*, remember to edit the relavant parts of `scripts` in `package.json`.
 
 ## Status
 It works... in the sense that I don't see any errors popping up. Routing has not been implemented yet.
@@ -16,7 +16,9 @@ Partial hydration is implemented as a Vite plugin found under `src/vite-plugin-s
 Vite uses esbuild during development and bundles the project for production using rollup. 
 
 ---
-Original Vite docs from @vite/create-app:
+
+---
+*Original Vite docs from @vite/create-app:*
 ## Svelte + TS + Vite
 
 This template should help get you started developing with Svelte and TypeScript in Vite.
