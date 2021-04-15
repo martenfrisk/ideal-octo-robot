@@ -1,4 +1,10 @@
-# Svelte + TS + Vite
+# Svelte Partial Hydration with Vite
+
+
+
+---
+Original Vite docs from @vite/create-app:
+## Svelte + TS + Vite
 
 This template should help get you started developing with Svelte and TypeScript in Vite.
 
