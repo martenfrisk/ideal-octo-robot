@@ -1,5 +1,6 @@
 # Svelte Partial Hydration with Vite
-
+## What is this?
+I'm studying full-stack web development and this is my degree project. 
 ## Installation
 `pnpm i` then `pnpm dev` or `pnpm dev:prod`.
 
@@ -13,7 +14,7 @@ Right now the load function returns the static location of Lazy.svelte ([line 58
 ## Structure
 Partial hydration is implemented as a Vite plugin found under `src/vite-plugin-svelte-partial-hydration`. Most of the code is based on Jonatan's repo which uses esbuild+ estrella. SSR-server inspired by https://github.com/benmccann/vite-svelte. 
 
-Vite uses esbuild during development and bundles the project for production using rollup. 
+Vite uses esbuild during development and bundles the project for production using rollup. So you'll see a fairly large difference between dev (`pnpm dev`) and production (`pnpm dev:prod`). 
 
 ---
 
