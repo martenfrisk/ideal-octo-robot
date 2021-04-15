@@ -1,6 +1,15 @@
 # Svelte Partial Hydration with Vite
 
+## Installation
+`pnpm i` then `pnpm dev` or `pnpm dev:prod`.
+If you're using npm or yarn, remember to edit the relavant parts of `scripts` in `package.json`.
 
+## Status
+It works... in the sense that I don't see any errors popping up. Routing has not been implemented yet.
+
+## Structure
+The partial hydration is implemented as a Vite plugin found under `src/vite-plugin-svelte-partial-hydration`. Most of the code is based on Jonatan's repo which uses esbuild and estrella. 
+Vite uses esbuild during development and bundles the project for production using rollup. 
 
 ---
 Original Vite docs from @vite/create-app:
