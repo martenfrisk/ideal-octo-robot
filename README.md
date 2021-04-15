@@ -2,13 +2,17 @@
 
 ## Installation
 `pnpm i` then `pnpm dev` or `pnpm dev:prod`.
+
 If you're using npm or yarn, remember to edit the relavant parts of `scripts` in `package.json`.
 
 ## Status
 It works... in the sense that I don't see any errors popping up. Routing has not been implemented yet.
 
+Right now the load function returns the static location of Lazy.svelte ([line 58](https://github.com/martenfrisk/svelte-partial-hydration-vite/blob/master/src/vite-plugin-svelte-partial-hydration/index.ts#L58) of the plugin file). This should obviously be dynamic. 
+
 ## Structure
-The partial hydration is implemented as a Vite plugin found under `src/vite-plugin-svelte-partial-hydration`. Most of the code is based on Jonatan's repo which uses esbuild and estrella. 
+Partial hydration is implemented as a Vite plugin found under `src/vite-plugin-svelte-partial-hydration`. Most of the code is based on Jonatan's repo which uses esbuild+ estrella. SSR-server inspired by https://github.com/benmccann/vite-svelte. 
+
 Vite uses esbuild during development and bundles the project for production using rollup. 
 
 ---
