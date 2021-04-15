@@ -60,7 +60,7 @@ async function startServer() {
       const rendered = await render(req.originalUrl, manifest)
       const head = `<style>${rendered.css.code}</style>`;
 
-      const html = fs.readFileSync('index.html', 'utf-8').replace(`<!--ssr-body-->`, rendered.html).replace(`<!--ssr-head-->`, head)
+      const html = getIndexTemplate(req.originalUrl).replace(`<!--ssr-body-->`, rendered.html).replace(`<!--ssr-head-->`, head)
 
       res.setHeader('Content-Type', 'text/html')
       res.end(html)
