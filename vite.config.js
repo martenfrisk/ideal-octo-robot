@@ -4,15 +4,16 @@ import svelte from "@sveltejs/vite-plugin-svelte"
 import partial from "./src/vite-plugin-svelte-partial-hydration"
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  server: {
-    plugins: [
-      svelte(),
-      partial(),
-    ],
-  },
-  plugins: [
-    svelte(),
-    partial(),
-  ],
+export default defineConfig(({ command, mode }) => {
+  const isProduction = mode === 'production'
+  return {
+    plugins: [partial(), svelte()],
+    build: {
+      manifest: true,
+      minify: false,
+      rollupOptions: {
+        external: ["/assets/manifest.json"],
+      },
+    },
+  }
 })
