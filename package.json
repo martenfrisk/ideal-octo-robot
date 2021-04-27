@@ -2,7 +2,7 @@
   "name": "svelte-partial-vite",
   "version": "0.0.0",
   "scripts": {
-    "dev": "pnpm build:client && pnpm build:server && node server.mjs",
+    "dev": "node server.mjs",
     "dev:prod": "cross-env NODE_ENV=production pnpm build:client && cross-env NODE_ENV=production pnpm build:server && cross-env NODE_ENV=production node server.mjs",
     "build": "vite build",
     "build:client": "vite build --outDir dist/client --ssrManifest",
