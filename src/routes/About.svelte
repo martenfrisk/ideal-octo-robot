@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
+  // @ts-nocheck
 import Lazy from "src/lib/Lazy.svelte!mount";
-
 </script>
 <a href="/">Home</a>
 <p>About page</p>
