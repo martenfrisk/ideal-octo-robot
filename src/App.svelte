@@ -1,24 +1,25 @@
-<script>
-  export let name;
-  import Lazy from './lib/Lazy.svelte!mount'
-  export let component, componentProps;
+<script lang="ts">
+  // @ts-nocheck
+  import { SvelteComponent } from "svelte"
+  // export let name;
+  import Counter from "./lib/Counter.svelte!mount"
+  import Lazy from "./lib/Lazy.svelte!mount"
+  export let component: SvelteComponent, componentProps: SvelteAllProps
 </script>
 
 <a href="/about">About</a>
 <main>
   <h1>Hello Partial!</h1>
+  <Counter />
   <Lazy server={Date.now()} foo="testProp" />
   <Lazy server={Date.now()} foo="testProp" />
-  <Lazy server={Date.now()} foo="testProp" />
-  <p>{name}</p>
   <svelte:component this={component} {...componentProps || {}} />
-
 </main>
 
 <style>
   :root {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
 
   main {
