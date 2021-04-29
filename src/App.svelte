@@ -1,10 +1,10 @@
 <script lang="ts">
   // @ts-nocheck
-  import { SvelteComponent } from "svelte"
+  // import { SvelteComponent } from "svelte"
   // export let name;
   import Counter from "./lib/Counter.svelte!mount"
   import Lazy from "./lib/Lazy.svelte!mount"
-  export let component: SvelteComponent, componentProps: SvelteAllProps
+  // export let component: SvelteComponent, componentProps: SvelteAllProps
 </script>
 
 <a href="/about">About</a>
@@ -13,7 +13,7 @@
   <Counter />
   <Lazy server={Date.now()} foo="testProp" />
   <Lazy server={Date.now()} foo="testProp" />
-  <svelte:component this={component} {...componentProps || {}} />
+  <!-- <svelte:component this={component} {...componentProps || {}} /> -->
 </main>
 
 <style>
@@ -38,19 +38,10 @@
     max-width: 14rem;
   }
 
-  p {
-    max-width: 14rem;
-    margin: 1rem auto;
-    line-height: 1.35;
-  }
-
   @media (min-width: 480px) {
     h1 {
       max-width: none;
     }
 
-    p {
-      max-width: none;
-    }
   }
 </style>
