@@ -10,7 +10,7 @@ export default defineConfig(({ command, mode }) => {
     plugins: [partial(), svelte()],
     build: {
       manifest: true,
-      // minify: false,
+      minify: false,
       // rollupOptions: {
       //   external: !isProduction && ["/assets/manifest.json"],
       // },
