@@ -1,4 +1,3 @@
-
 import fs from 'fs';
 import sirv from 'sirv';
 import express from 'express'
