@@ -3,8 +3,8 @@
 // import { init } from "./client/hydrate"
 // init()
 import './client/index.ts'
-import './mount/root.svelte'
-import './lib/Counter.svelte'
+// import './mount/root.svelte'
+// import './lib/Counter.svelte'
 
 // const app = new App({
 //   target: document.body,
