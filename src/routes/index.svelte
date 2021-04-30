@@ -2,8 +2,8 @@
   // @ts-nocheck
   import { SvelteComponent } from "svelte"
   // export let name;
-  import Counter from "./lib/Counter.svelte!mount"
-  import Lazy from "./lib/Lazy.svelte!mount"
+  import Counter from "../lib/Counter.svelte!mount"
+  import Lazy from "../lib/Lazy.svelte!mount"
   export let component: SvelteComponent, componentProps: SvelteAllProps
 </script>
 
