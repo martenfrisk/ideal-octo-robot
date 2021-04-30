@@ -1,0 +1,10 @@
+{
+  "src/entry-server.ts": {
+    "file": "entry-server.js",
+    "src": "src/entry-server.ts",
+    "isEntry": true,
+    "css": [
+      "assets/entry-server.34cec247.css"
+    ]
+  }
+}
