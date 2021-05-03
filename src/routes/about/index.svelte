@@ -1,18 +1,21 @@
-<script context="module">
+<!-- <script context="module">
   export function get() {
     return { myProp: 'test' }
   } 
-</script>
+</script> -->
 
 <script lang="ts">
   // @ts-nocheck
-  import Lazy from "../../lib/Lazy.svelte";
-  export let myProp;
+  import Lazy from "../../lib/Lazy.svelte!mount";
 </script>
 
-<a href="/">Home</a>
-<p>About page</p>
+<h1>About page</h1>
+<p>This is the about page. The style of this paragraph comes from this page's svelte file.</p>
 
-My prop: {myProp}
+<Lazy foo="aboutProp" server={Date.now()} />
 
-<Lazy foo="aboutProp" date={Date.now()} />
+<style>
+  p {
+    color: cornflowerblue;
+  }
+</style>
