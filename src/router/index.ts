@@ -1,5 +1,5 @@
 const modules = import.meta.globEager("../routes/**/*.{js,ts,svelte}")
-// console.log({modules})
+// console.log({ modules })
 
 export type RenderProps = {
   component: { render(): any }
@@ -32,12 +32,22 @@ export const routes = new Map(
     .map(([path, mod]) => [nameToPattern(path), mod.default])
 )
 
-const layouts = [["/" /* layout component */], ["/about/" /* ... */]]
+console.log({routes})
+
+
+const layouts = [
+  { path: "/", layout: "/$layout" },
+  { path: "/about/", layout: "/about/$layout" },
+]
 // const layouts = [{"/"}, {"/about/"}]
 
 export function getMatchingRoute(pathname) {
+  console.log({pathname})
+  
   const match = [...routes.entries()].find((x) => x[0] === pathname)
   if (match) {
+    // console.log({match})
+    
     return match[1]
   }
 }
@@ -46,26 +56,32 @@ export function getMatchingRoute(pathname) {
 function getMatchingLayouts(path, children = []) {
   console.log({ path })
 
-  if (path in layouts) {
+  if (layouts.some(x => x.path === path)) {
     console.log("path found")
 
-    children = [layouts[path], ...children]
+    // children = [getMatchingRoute(layouts.find((x) => x.path === path).layout), ...children]
+    children = [getMatchingRoute(layouts.find((x) => x.path === path).layout), ...children]
+    // console.log({children})
+    
   }
-
+  
   if (path != "/") {
-    return getMatchingLayouts(path.replace(/[^\/]+\//, ""), children)
+    children = [getMatchingRoute(layouts.find((x) => x.path === "/").layout), ...children]
+    // return getMatchingLayouts(path.replace(/[^\/]+\//, ""), children)
   }
 
   return children
 }
 
 export function getMatchingRoutes(pathname) {
-  // const nested = getMatchingLayouts(pathname)
-  // console.log({nested})
+  const nested = getMatchingLayouts(pathname)
+  console.log({nested})
 
-  // return [...nested, getMatchingRoute(pathname)]
   const routeMatch = getMatchingRoute(pathname.replace(/\/$/, ""))
+  console.log({routeMatch})
+  
+  return [...nested, routeMatch]
   // console.log(routes.get("/$layout"))
 
-  return [routes.get("/$layout"), routeMatch]
+  // return [routes.get("/$layout"), routeMatch]
 }
