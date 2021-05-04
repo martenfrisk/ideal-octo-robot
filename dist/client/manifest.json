@@ -1,7 +1,33 @@
 {
   "index.html": {
-    "file": "assets/index.ee871897.js",
+    "file": "assets/index.05f02277.js",
     "src": "index.html",
-    "isEntry": true
+    "isEntry": true,
+    "dynamicImports": [
+      "src/lib/Counter.svelte",
+      "src/lib/Lazy.svelte"
+    ]
+  },
+  "src/lib/Counter.svelte": {
+    "file": "assets/Counter.0d5f3780.js",
+    "src": "src/lib/Counter.svelte",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index.f7725d13.js"
+    ],
+    "css": [
+      "assets/Counter.243a3436.css"
+    ]
+  },
+  "_index.f7725d13.js": {
+    "file": "assets/index.f7725d13.js"
+  },
+  "src/lib/Lazy.svelte": {
+    "file": "assets/Lazy.3884e77c.js",
+    "src": "src/lib/Lazy.svelte",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index.f7725d13.js"
+    ]
   }
 }
