@@ -29,24 +29,26 @@ export const routes = new Map(
       const name = matches && matches[1]
       return !name.startsWith("_")
     })
-    .map(([path, mod]) => [nameToPattern(path), mod.default])
+    .map(([path, mod]) => {
+      // console.log({mod})
+      
+      return [nameToPattern(path), mod]})
 )
 
-console.log({routes})
+// console.log(routes)
 
 
 const layouts = [
   { path: "/", layout: "/$layout" },
   { path: "/about/", layout: "/about/$layout" },
 ]
-// const layouts = [{"/"}, {"/about/"}]
 
 export function getMatchingRoute(pathname) {
-  console.log({pathname})
+  // console.log({pathname})
   
   const match = [...routes.entries()].find((x) => x[0] === pathname)
   if (match) {
-    // console.log({match})
+    // console.log(match[1])
     
     return match[1]
   }
@@ -54,19 +56,19 @@ export function getMatchingRoute(pathname) {
 
 // path = '/' or '/about/', etc, e.g. the the current folder without the file name
 function getMatchingLayouts(path, children = []) {
-  console.log({ path })
-
+  // console.log({path})
+  
   if (layouts.some(x => x.path === path)) {
-    console.log("path found")
-
-    // children = [getMatchingRoute(layouts.find((x) => x.path === path).layout), ...children]
     children = [getMatchingRoute(layouts.find((x) => x.path === path).layout), ...children]
-    // console.log({children})
     
   }
   
-  if (path != "/") {
+  if (path !== "/") {
     children = [getMatchingRoute(layouts.find((x) => x.path === "/").layout), ...children]
+    // console.log(getMatchingRoute(layouts.find((x) => x.path === "/").layout))
+    // console.log('routesget: ', routes.get(path + '/$layout'))
+    
+    // children = [routes.get(path + '/$layout'), ...children]
     // return getMatchingLayouts(path.replace(/[^\/]+\//, ""), children)
   }
 
@@ -75,13 +77,10 @@ function getMatchingLayouts(path, children = []) {
 
 export function getMatchingRoutes(pathname) {
   const nested = getMatchingLayouts(pathname)
-  console.log({nested})
+  // console.log({nested})
 
   const routeMatch = getMatchingRoute(pathname.replace(/\/$/, ""))
-  console.log({routeMatch})
+  // console.log({routeMatch})
   
   return [...nested, routeMatch]
-  // console.log(routes.get("/$layout"))
-
-  // return [routes.get("/$layout"), routeMatch]
 }
