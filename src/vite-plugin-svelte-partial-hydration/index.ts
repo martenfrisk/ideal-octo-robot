@@ -37,9 +37,11 @@ export default function vitePluginSveltePartialHydration(
     async configResolved(config) {
       requestParser = buildIdParser(config)
     },
+    // async resolveDynamicImport() {
+
+    // },
     async resolveId(id, importer, source, ssr) {
       if (id.match(clientFilter)) {
-        // console.log(`$CROWN-COMP - RESOLVE, id: ${id}, source: ${JSON.stringify(source)}`)
         return id
       }
       if (ssr) {
@@ -53,6 +55,8 @@ export default function vitePluginSveltePartialHydration(
           })
 
           if (resolution) {
+            // console.log({resolution})
+            
             return { id: resolution.id + "!mount" + args }
           }
 
@@ -66,24 +70,27 @@ export default function vitePluginSveltePartialHydration(
       if (id.match(clientFilter)) {
         let entries
 
-        console.log("$CROWN-COMP - LOAD", id, ssr)
+        // console.log("$CROWN-COMP - LOAD", id, ssr)
         if (server) {
           const graph = server.moduleGraph.idToModuleMap.entries()
           entries = Array.from(graph)
             .filter(([id]) => id.match(mountFilter))
             .map(([id, meta]) => [id, meta.url])
-        } else if (clientManifestPath) {
-          try {
-            let clientManifest = require(clientManifestPath)
-            entries = Object.entries(clientManifest)
-            // @ts-ignore
-              .filter(([id, meta]) => meta.isDynamicEntry)
-              .map(([id, meta]) => [id, id])
-          } catch (e) {
-            console.error(e)
-          }
-        }
-        if (entries) {
+        } 
+        // else if (clientManifestPath) {
+        //   try {
+        //     let clientManifest = require(clientManifestPath)
+        //     entries = Object.entries(clientManifest)
+        //     // @ts-ignore
+        //       .filter(([id, meta]) => meta.isDynamicEntry)
+        //       .map(([id, meta]) => [id, id])
+        //   } catch (e) {
+        //     console.error(e)
+        //   }
+        // }
+        if (entries && entries.length) {
+          // console.log({entries})
+          
           return {
             code: `
 export default { 
@@ -91,8 +98,11 @@ export default {
 };`,
           }
         }
-
-        return `export default {}; console.error("Faild to load dynamic components");`
+        // this is static in prod but should be dynamic
+        return `export default{
+          '/src/lib/Counter.svelte': () =>import ('/src/lib/Counter.svelte'),
+          '/src/lib/Lazy.svelte': () =>import ('/src/lib/Lazy.svelte')
+        };`
       }
 
       if (ssr) {
