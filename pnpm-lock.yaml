@@ -12,6 +12,7 @@ specifiers:
   cross-env: ^7.0.3
   esbuild: ~0.9.7
   express: ^4.17.1
+  isomorphic-unfetch: ^3.1.0
   jest: ^26.6.3
   jest-playwright-preset: ^1.5.2
   morphdom: ^2.6.1
@@ -30,12 +31,13 @@ dependencies:
   compression: 1.7.4
   cross-env: 7.0.3
   express: 4.17.1
+  isomorphic-unfetch: 3.1.0
   sirv: 1.0.11
 
 devDependencies:
   '@babel/preset-env': 7.13.15
   '@rollup/pluginutils': 4.1.0_rollup@2.45.2
-  '@sveltejs/vite-plugin-svelte': 1.0.0-next.8_79216c587c9869ced3d6c45a7c44d0db
+  '@sveltejs/vite-plugin-svelte': 1.0.0-next.9_79216c587c9869ced3d6c45a7c44d0db
   '@testing-library/jest-dom': 5.12.0
   '@testing-library/svelte': 3.0.3_svelte@3.37.0
   '@types/jest': 26.0.23
@@ -1374,8 +1376,8 @@ packages:
       '@sinonjs/commons': 1.8.3
     dev: true
 
-  /@sveltejs/vite-plugin-svelte/1.0.0-next.8_79216c587c9869ced3d6c45a7c44d0db:
-    resolution: {integrity: sha512-aHhfHa0ma9e/H+yv5NA3ie0lRy5duwnUA5fNlGzvxlGMW7DPno+UffbMPZ/HQo3J3Oh7BdC/IDwSwvgucJHPkw==}
+  /@sveltejs/vite-plugin-svelte/1.0.0-next.9_79216c587c9869ced3d6c45a7c44d0db:
+    resolution: {integrity: sha512-ySB/GJsZV3h3jqjq5WIiaxVFkJK6vqtG9gS7Iw6SfUH9ZiFNw5JjQF69g68j9cNep3q4yRIYiG5/pI3YIdXEuA==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       svelte: ^3.37.0
@@ -3420,6 +3422,13 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /isomorphic-unfetch/3.1.0:
+    resolution: {integrity: sha512-geDJjpoZ8N0kWexiwkX8F9NkTsXhetLPVbZFQ+JTW239QNOwvB0gniuR1Wc6f0AMTn7/mFGyXvHTifrCp/GH8Q==}
+    dependencies:
+      node-fetch: 2.6.1
+      unfetch: 4.2.0
+    dev: false
+
   /isstream/0.1.2:
     resolution: {integrity: sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=}
     dev: true
@@ -4359,6 +4368,11 @@ packages:
   /nice-try/1.0.5:
     resolution: {integrity: sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==}
     dev: true
+
+  /node-fetch/2.6.1:
+    resolution: {integrity: sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==}
+    engines: {node: 4.x || >=6.0.0}
+    dev: false
 
   /node-int64/0.4.0:
     resolution: {integrity: sha1-h6kGXNs1XTGC2PlM4RGIuCXGijs=}
@@ -5758,6 +5772,10 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
+
+  /unfetch/4.2.0:
+    resolution: {integrity: sha512-F9p7yYCn6cIW9El1zi0HI6vqpeIvBsr3dSuRO6Xuppb1u5rXpCPmMvLSyECLhybr9isec8Ohl0hPekMVrEinDA==}
+    dev: false
 
   /unicode-canonical-property-names-ecmascript/1.0.4:
     resolution: {integrity: sha512-jDrNnXWHd4oHiTZnx/ZG7gtUTVp+gCcTTKr8L0HjlwphROEW3+Him+IpvC+xcJEFegapiMZyZe02CyuOnRmbnQ==}
