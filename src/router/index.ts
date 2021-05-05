@@ -30,7 +30,7 @@ export const routes = new Map(
       return !name.startsWith("_")
     })
     .map(([path, mod]) => {
-      // console.log({mod})
+      console.log(path, mod)
       
       return [nameToPattern(path), mod]})
 )
