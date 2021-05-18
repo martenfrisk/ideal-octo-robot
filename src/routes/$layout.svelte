@@ -13,7 +13,7 @@
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin: 2rem auto;
+    margin: 1rem auto 0 auto;
   }
   a {
     text-decoration: none;
@@ -28,7 +28,7 @@
     font-size: 4rem;
     font-weight: 100;
     line-height: 1.1;
-    margin: 2rem auto;
+    margin: 0 auto;
   }
   main {
     background-color: #fff;
