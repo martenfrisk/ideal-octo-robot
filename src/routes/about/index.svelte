@@ -1,8 +1,13 @@
 <script context="module">
   import fetch from "isomorphic-unfetch"
-  export async function getFn() {
-    const response = await fetch("https://zenquotes.io/api/random")
+  export async function get() {
+    const response = await fetch(
+      "http://quotes.stormconsultancy.co.uk/random.json"
+    )
     const data = await response.json()
+    // const response = await fetch("https://zenquotes.io/api/random")
+    // const data = await response.json()
+    // return { data: data[0] }
     return { data }
   }
 </script>
@@ -10,35 +15,53 @@
 <script lang="ts">
   // @ts-nocheck
   export let data: {
-    q: string
-    a: string
-    h: string
+    author: string
+    id: number
+    quote: string
+    permalink: string
   }
-  console.log("about: ", { data })
-
-  import Lazy from "../../lib/Lazy.svelte!mount"
-  // import Quote from "../../lib/Quote.svelte!mount"
+  // import Lazy from "../../lib/Lazy.svelte!mount"
+  import Quote from "../../lib/Quote.svelte!mount"
 </script>
 
 <h1>About page</h1>
-<p>
+
+<div class="showcase static">
+  <h2>Static content served as HTML+CSS</h2>
   {#if data}
-    {data.h}
-  {:else}
-    No prop
+    <p class="quote">
+      Here's a quote fetched on the server from an external API:
+    </p>
+    <p>
+      "{data.quote}"
+    </p>
+    <p>- {data.author}</p>
   {/if}
-</p>
+</div>
 
-<p>
-  This is the about page. The style of this paragraph comes from this page's
-  svelte file.
-</p>
-
-<!-- <Quote /> -->
-<Lazy foo="aboutProp" server={Date.now()} />
+<div class="showcase dynamic">
+  <h2>This part has JS.</h2>
+  <Quote defaultQuote={data} />
+  <!-- <Lazy foo="aboutProp" server={Date.now()} /> -->
+</div>
 
 <style>
+  .static {
+    border: 1px solid turquoise;
+  }
+  .dynamic {
+    border: 1px solid tomato;
+  }
+  .showcase {
+    padding: 1rem 2rem;
+    width: 50%;
+    margin: 1rem auto;
+  }
+  .quote {
+    color: darkslategray;
+  }
   p {
     color: cornflowerblue;
+    margin-top: 2rem;
   }
 </style>
