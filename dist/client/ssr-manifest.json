@@ -1,14 +1,25 @@
 {
   "C:/Users/Marten/Documents/Web/svelte-partial-vite/src/lib/Counter.svelte?svelte&type=style&lang.css": [
     "/assets/Counter.0d5f3780.js",
-    "/assets/Counter.243a3436.css"
+    "/assets/Counter.ba2282d1.css"
   ],
   "C:/Users/Marten/Documents/Web/svelte-partial-vite/src/lib/Counter.svelte": [
     "/assets/Counter.0d5f3780.js",
-    "/assets/Counter.243a3436.css"
+    "/assets/Counter.ba2282d1.css"
   ],
   "C:/Users/Marten/Documents/Web/svelte-partial-vite/node_modules/.pnpm/svelte@3.37.0/node_modules/svelte/internal/index.mjs": [
     "/assets/index.f7725d13.js"
+  ],
+  "C:/Users/Marten/Documents/Web/svelte-partial-vite/src/lib/Quote.svelte": [
+    "/assets/Quote.2b4bb7b3.js"
+  ],
+  "C:/Users/Marten/Documents/Web/svelte-partial-vite/src/lib/Image.svelte?svelte&type=style&lang.css": [
+    "/assets/Image.54ce2323.js",
+    "/assets/Image.cfb7d62d.css"
+  ],
+  "C:/Users/Marten/Documents/Web/svelte-partial-vite/src/lib/Image.svelte": [
+    "/assets/Image.54ce2323.js",
+    "/assets/Image.cfb7d62d.css"
   ],
   "C:/Users/Marten/Documents/Web/svelte-partial-vite/src/lib/Lazy.svelte": [
     "/assets/Lazy.3884e77c.js"

@@ -1,10 +1,12 @@
 {
   "index.html": {
-    "file": "assets/index.05f02277.js",
+    "file": "assets/index.26582591.js",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
       "src/lib/Counter.svelte",
+      "src/lib/Quote.svelte",
+      "src/lib/Image.svelte",
       "src/lib/Lazy.svelte"
     ]
   },
@@ -16,11 +18,30 @@
       "_index.f7725d13.js"
     ],
     "css": [
-      "assets/Counter.243a3436.css"
+      "assets/Counter.ba2282d1.css"
     ]
   },
   "_index.f7725d13.js": {
     "file": "assets/index.f7725d13.js"
+  },
+  "src/lib/Quote.svelte": {
+    "file": "assets/Quote.2b4bb7b3.js",
+    "src": "src/lib/Quote.svelte",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index.f7725d13.js"
+    ]
+  },
+  "src/lib/Image.svelte": {
+    "file": "assets/Image.54ce2323.js",
+    "src": "src/lib/Image.svelte",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index.f7725d13.js"
+    ],
+    "css": [
+      "assets/Image.cfb7d62d.css"
+    ]
   },
   "src/lib/Lazy.svelte": {
     "file": "assets/Lazy.3884e77c.js",
