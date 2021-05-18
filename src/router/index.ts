@@ -30,12 +30,10 @@ export const routes = new Map(
       return !name.startsWith("_")
     })
     .map(([path, mod]) => {
-      console.log(path, mod)
-      
       return [nameToPattern(path), mod]})
 )
 
-// console.log(routes)
+// console.log({routes})
 
 
 const layouts = [
@@ -44,7 +42,6 @@ const layouts = [
 ]
 
 export function getMatchingRoute(pathname) {
-  // console.log({pathname})
   
   const match = [...routes.entries()].find((x) => x[0] === pathname)
   if (match) {
@@ -77,10 +74,8 @@ function getMatchingLayouts(path, children = []) {
 
 export function getMatchingRoutes(pathname) {
   const nested = getMatchingLayouts(pathname)
-  // console.log({nested})
 
   const routeMatch = getMatchingRoute(pathname.replace(/\/$/, ""))
-  // console.log({routeMatch})
   
   return [...nested, routeMatch]
 }
