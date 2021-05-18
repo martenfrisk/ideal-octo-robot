@@ -4,36 +4,33 @@ import App from "./App.svelte"
 
 export async function render(path: string, manifest: any): Promise<any> {
   const components = getMatchingRoutes(path)
-
   if (components) {
     // Merge components and props
-    const componentsDefault = components.map((component) => {
+    const componentsDefault = components.map(async (component) => {
       // if component has get(), run it and add its response as props
-      if (component.getFn) {
+      if (component && component.get) {
+        const props = await component.get()
+
         return {
-          props: (component.getFn()) || {},
+          props,
           component: component.default,
         }
-      } 
-      // else just include the component
+      } else if (component) {
+        // else just include the component
         return {
           component: component.default,
         }
+      }
+      return null
     })
 
-    // const promises = components.map((component) => {
-    //   if (component.get) return component.get()
-    // })
+    let promised = await Promise.all(componentsDefault)
 
-    // const props = await Promise.allSettled(promises).then((data) =>
-    //   data.filter((x) => x.status == "fulfilled")
-    // )
-    
-      // @ts-ignore
-      const { html, css, head } = App.render({
-        components: componentsDefault,
-      })
-      return { html, css, head }
+    // @ts-ignore
+    const { html, css, head } = App.render({
+      components: promised,
+    })
+    return { html, css, head }
   }
   return null
 }
