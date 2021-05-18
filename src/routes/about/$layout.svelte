@@ -1,4 +1,4 @@
-<p>This comes from about/$layout.svelte</p>
+<!-- <p>This comes from about/$layout.svelte</p> -->
 <slot></slot>
 
 <style>
