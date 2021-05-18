@@ -1,18 +1,26 @@
-<script context="module">
-  export async function get() {
-    const response = await this.fetch('https://zenquotes.io/api/random')
+<script lang="ts">
+  // let quote: string
+  export let defaultQuote: {
+    author: string
+    id: number
+    quote: string
+    permalink: string
+  }
+  async function getRandomQuote() {
+    const response = await fetch(
+      "http://quotes.stormconsultancy.co.uk/random.json"
+    )
     const data = await response.json()
-    return { data }
+    defaultQuote = data
   }
 </script>
 
-<script>
-  export let data
-</script>
-
-<p>Quote goes here:</p>
-{#if data}
-<p>{data}</p>
-{:else}
-<p>No quote 😔</p>
-{/if}
+  <button on:click={getRandomQuote}>New quote</button>
+  <div>
+    {#if defaultQuote}
+      <p>
+        "{defaultQuote.quote}"
+      </p>
+      <p>- {defaultQuote.author}</p>
+    {/if}
+  </div>
