@@ -62,10 +62,7 @@ export default function vitePluginSveltePartialHydration(
       }
     },
     async load(id, ssr) {
-      // console.log({id})
-      
       if (id.match(clientFilter)) {
-
         let entries
         if (server) {
           const graph = server.moduleGraph.idToModuleMap.entries()
@@ -95,7 +92,7 @@ export default {
 };`,
           }
         }
-        // static fallback, possibly remove this
+        // static fallback for production, needs fix
         return `export default{
           '/src/lib/Counter.svelte': () =>import ('/src/lib/Counter.svelte'),
           '/src/lib/Quote.svelte': () =>import ('/src/lib/Quote.svelte'),
@@ -108,7 +105,6 @@ export default {
         let matches = id.match(mountFilter)
         
         if (matches) {
-          console.log('is ssr', id)
           const svelteRequest = requestParser(id, !!ssr)
           const realPath = matches[1]
           return {
