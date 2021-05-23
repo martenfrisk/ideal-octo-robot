@@ -1,11 +1,5 @@
 # Svelte Partial Hydration with Vite
 
-[https://developers.google.com/web/updates/2019/02/rendering-on-the-web#rehydration-issues](https://developers.google.com/web/updates/2019/02/rendering-on-the-web#rehydration-issues)
-
-[https://elderguide.com/tech/elderjs/#partial-hydration](https://elderguide.com/tech/elderjs/#partial-hydration)
-
-[https://dev.to/this-is-learning/is-0kb-of-javascript-in-your-future-48og](https://dev.to/this-is-learning/is-0kb-of-javascript-in-your-future-48og)
-
 This is a proof of concept for implementing partial hydration in Svelte in the form of a Vite plugin.
 
 ## Partial hydration
